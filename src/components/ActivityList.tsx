@@ -36,7 +36,13 @@ export default function ActivityList( { activities,  dispatch} : ActivityListPro
                         </div>
                         <div className="flex gap-5 item-center">
                             <button 
-                                onClick={ () => dispatch({ type: "set-activeId", payload: {id: activity.id} }) }
+                                onClick={ () => {
+                                    dispatch({ type: "set-activeId", payload: {id: activity.id}});
+                                    //window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                                    document.getElementById('form-activities')?.scrollIntoView({
+                                        behavior: 'smooth'
+                                    });
+                                }}
                                 className=""
                             >
                                 <PencilSquareIcon
